@@ -4079,12 +4079,12 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="R2" library="rcl" deviceset="R-US_" device="0207/10" value="10k"/>
 <part name="R3" library="rcl" deviceset="R-US_" device="0207/10" value="10k"/>
 <part name="C1" library="docu-dummy" deviceset="C" device="" value="100n"/>
-<part name="S1" library="switch-omron" deviceset="10-XX" device=""/>
-<part name="S2" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="RESET" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="FLASH" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="R4" library="rcl" deviceset="R-US_" device="0207/10" value="4k7"/>
 <part name="R5" library="rcl" deviceset="R-US_" device="0207/10" value="100R"/>
 <part name="Q1" library="transistor-npn" deviceset="2N4416" device=""/>
-<part name="D1" library="led" deviceset="SFH482" device=""/>
+<part name="IR" library="led" deviceset="SFH482" device=""/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
@@ -4103,12 +4103,12 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="R2" gate="G$1" x="-7.62" y="58.42"/>
 <instance part="R3" gate="G$1" x="48.26" y="48.26"/>
 <instance part="C1" gate="G$1" x="45.72" y="43.18" rot="R90"/>
-<instance part="S1" gate="1" x="-5.08" y="76.2" rot="R270"/>
-<instance part="S2" gate="1" x="58.42" y="55.88" rot="R270"/>
+<instance part="RESET" gate="1" x="-5.08" y="76.2" rot="R270"/>
+<instance part="FLASH" gate="1" x="58.42" y="55.88" rot="R270"/>
 <instance part="R4" gate="G$1" x="88.9" y="55.88"/>
 <instance part="R5" gate="G$1" x="121.92" y="58.42" rot="R90"/>
 <instance part="Q1" gate="G$1" x="101.6" y="55.88"/>
-<instance part="D1" gate="1" x="114.3" y="66.04" rot="R270"/>
+<instance part="IR" gate="1" x="114.3" y="66.04" rot="R270"/>
 <instance part="P+1" gate="VCC" x="-17.78" y="68.58"/>
 <instance part="GND1" gate="1" x="58.42" y="43.18"/>
 <instance part="P+2" gate="VCC" x="50.8" y="60.96"/>
@@ -4138,7 +4138,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </segment>
 <segment>
 <pinref part="P+2" gate="VCC" pin="VCC"/>
-<pinref part="S2" gate="1" pin="P"/>
+<pinref part="FLASH" gate="1" pin="P"/>
 <wire x1="53.34" y1="55.88" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="55.88" x2="50.8" y2="58.42" width="0.1524" layer="91"/>
 </segment>
@@ -4170,10 +4170,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="58.42" y1="48.26" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="S2" gate="1" pin="S1"/>
+<pinref part="FLASH" gate="1" pin="S1"/>
 <wire x1="63.5" y1="53.34" x2="66.04" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="53.34" x2="66.04" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="S2" gate="1" pin="S"/>
+<pinref part="FLASH" gate="1" pin="S"/>
 <wire x1="66.04" y1="55.88" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="53.34" x2="66.04" y2="48.26" width="0.1524" layer="91"/>
 <junction x="66.04" y="53.34"/>
@@ -4183,10 +4183,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="58.42" y="48.26"/>
 </segment>
 <segment>
-<pinref part="S1" gate="1" pin="P"/>
+<pinref part="RESET" gate="1" pin="P"/>
 <wire x1="-10.16" y1="76.2" x2="-12.7" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="-12.7" y1="76.2" x2="-12.7" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="S1" gate="1" pin="P1"/>
+<pinref part="RESET" gate="1" pin="P1"/>
 <wire x1="-12.7" y1="73.66" x2="-10.16" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 <wire x1="-12.7" y1="71.12" x2="-12.7" y2="73.66" width="0.1524" layer="91"/>
@@ -4210,10 +4210,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="2.54" y1="63.5" x2="5.08" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="63.5" x2="2.54" y2="73.66" width="0.1524" layer="91"/>
 <junction x="2.54" y="63.5"/>
-<pinref part="S1" gate="1" pin="S1"/>
+<pinref part="RESET" gate="1" pin="S1"/>
 <wire x1="0" y1="73.66" x2="2.54" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="73.66" x2="2.54" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="S1" gate="1" pin="S"/>
+<pinref part="RESET" gate="1" pin="S"/>
 <wire x1="2.54" y1="76.2" x2="0" y2="76.2" width="0.1524" layer="91"/>
 <junction x="2.54" y="73.66"/>
 <wire x1="0" y1="63.5" x2="0" y2="66.04" width="0.1524" layer="91"/>
@@ -4232,7 +4232,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <net name="N$7" class="0">
 <segment>
 <pinref part="MDL1" gate="G$1" pin="GPIO0"/>
-<pinref part="S2" gate="1" pin="P1"/>
+<pinref part="FLASH" gate="1" pin="P1"/>
 <wire x1="38.1" y1="53.34" x2="53.34" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4262,7 +4262,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="D1" gate="1" pin="A"/>
+<pinref part="IR" gate="1" pin="A"/>
 <wire x1="116.84" y1="66.04" x2="121.92" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="121.92" y1="66.04" x2="121.92" y2="63.5" width="0.1524" layer="91"/>
@@ -4270,7 +4270,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </net>
 <net name="N$4" class="0">
 <segment>
-<pinref part="D1" gate="1" pin="C"/>
+<pinref part="IR" gate="1" pin="C"/>
 <pinref part="Q1" gate="G$1" pin="C"/>
 <wire x1="109.22" y1="66.04" x2="104.14" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="66.04" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
