@@ -6364,6 +6364,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="FTDI" library="con-lstb" deviceset="MA06-1" device=""/>
+<part name="R6" library="rcl" deviceset="R-US_" device="0207/10" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -6383,11 +6384,12 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="IR" gate="1" x="114.3" y="66.04" rot="R270"/>
 <instance part="P+1" gate="VCC" x="-17.78" y="68.58"/>
 <instance part="GND1" gate="1" x="58.42" y="43.18"/>
-<instance part="P+2" gate="VCC" x="50.8" y="60.96"/>
+<instance part="P+2" gate="VCC" x="50.8" y="78.74"/>
 <instance part="GND2" gate="1" x="40.64" y="38.1"/>
 <instance part="GND3" gate="1" x="-12.7" y="68.58"/>
 <instance part="GND4" gate="1" x="104.14" y="45.72"/>
 <instance part="FTDI" gate="1" x="81.28" y="38.1" rot="R270"/>
+<instance part="R6" gate="G$1" x="50.8" y="66.04" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -6409,12 +6411,6 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="-17.78" y="63.5"/>
 </segment>
 <segment>
-<pinref part="P+2" gate="VCC" pin="VCC"/>
-<pinref part="FLASH" gate="1" pin="P"/>
-<wire x1="53.34" y1="55.88" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="55.88" x2="50.8" y2="58.42" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="FTDI" gate="1" pin="4"/>
 <wire x1="81.28" y1="30.48" x2="81.28" y2="25.4" width="0.1524" layer="91"/>
 <label x="81.28" y="25.4" size="1.778" layer="95" rot="R90"/>
@@ -6428,6 +6424,11 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="45.72" y1="35.56" x2="45.72" y2="30.48" width="0.1524" layer="91"/>
 <label x="45.72" y="33.02" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R6" gate="G$1" pin="2"/>
+<pinref part="P+2" gate="VCC" pin="VCC"/>
+<wire x1="50.8" y1="71.12" x2="50.8" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -6501,13 +6502,6 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="FTDI" gate="1" pin="5"/>
 <wire x1="83.82" y1="30.48" x2="83.82" y2="25.4" width="0.1524" layer="91"/>
 <label x="83.82" y="25.4" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="MDL1" gate="G$1" pin="GPIO0"/>
-<pinref part="FLASH" gate="1" pin="P1"/>
-<wire x1="38.1" y1="53.34" x2="53.34" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RXI" class="0">
@@ -6588,6 +6582,21 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="MDL1" gate="G$1" pin="GPIO15"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="38.1" y1="48.26" x2="43.18" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="FLASH" gate="1" pin="P"/>
+<wire x1="53.34" y1="55.88" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="55.88" x2="50.8" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="FLASH" gate="1" pin="P1"/>
+<wire x1="50.8" y1="53.34" x2="53.34" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="MDL1" gate="G$1" pin="GPIO0"/>
+<wire x1="38.1" y1="53.34" x2="50.8" y2="53.34" width="0.1524" layer="91"/>
+<junction x="50.8" y="53.34"/>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="60.96" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
+<junction x="50.8" y="55.88"/>
 </segment>
 </net>
 </nets>
