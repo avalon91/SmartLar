@@ -6558,8 +6558,8 @@ Standard adjustable SMD voltage regulator.</description>
 <part name="FTDI" library="con-lstb" deviceset="MA06-1" device=""/>
 <part name="R6" library="rcl" deviceset="R-US_" device="0207/10" value="10k"/>
 <part name="IC1" library="kaibader" deviceset="AMS1117" device=""/>
-<part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="X1" library="con-molex" deviceset="22-23-2021" device=""/>
+<part name="GND5" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6586,9 +6586,9 @@ Standard adjustable SMD voltage regulator.</description>
 <instance part="FTDI" gate="1" x="81.28" y="38.1" rot="R270"/>
 <instance part="R6" gate="G$1" x="50.8" y="66.04" rot="R90"/>
 <instance part="IC1" gate="G$1" x="76.2" y="83.82"/>
-<instance part="GND5" gate="1" x="76.2" y="68.58"/>
 <instance part="X1" gate="-1" x="53.34" y="86.36" rot="R180"/>
 <instance part="X1" gate="-2" x="53.34" y="88.9" rot="R180"/>
+<instance part="GND5" gate="1" x="76.2" y="68.58"/>
 </instances>
 <busses>
 </busses>
@@ -6685,6 +6685,20 @@ Standard adjustable SMD voltage regulator.</description>
 <pinref part="FTDI" gate="1" pin="6"/>
 <wire x1="86.36" y1="30.48" x2="86.36" y2="25.4" width="0.1524" layer="91"/>
 <label x="86.36" y="25.4" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="ADJ-GND"/>
+<wire x1="76.2" y1="76.2" x2="76.2" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="73.66" x2="71.12" y2="73.66" width="0.1524" layer="91"/>
+<junction x="76.2" y="73.66"/>
+<label x="71.12" y="73.66" size="1.778" layer="95"/>
+<wire x1="76.2" y1="73.66" x2="76.2" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="X1" gate="-1" pin="S"/>
+<wire x1="55.88" y1="86.36" x2="60.96" y2="86.36" width="0.1524" layer="91"/>
+<label x="58.42" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CTS" class="0">
@@ -6810,22 +6824,6 @@ Standard adjustable SMD voltage regulator.</description>
 <pinref part="X1" gate="-2" pin="S"/>
 <wire x1="55.88" y1="88.9" x2="60.96" y2="88.9" width="0.1524" layer="91"/>
 <label x="58.42" y="88.9" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="IN-" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="ADJ-GND"/>
-<wire x1="76.2" y1="76.2" x2="76.2" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="GND5" gate="1" pin="GND"/>
-<wire x1="76.2" y1="73.66" x2="76.2" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="73.66" x2="71.12" y2="73.66" width="0.1524" layer="91"/>
-<junction x="76.2" y="73.66"/>
-<label x="71.12" y="73.66" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="X1" gate="-1" pin="S"/>
-<wire x1="55.88" y1="86.36" x2="60.96" y2="86.36" width="0.1524" layer="91"/>
-<label x="58.42" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

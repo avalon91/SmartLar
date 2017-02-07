@@ -6487,10 +6487,6 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="2.54" y="63.5"/>
 <pinref part="RESET" gate="1" pin="S1"/>
 <wire x1="0" y1="73.66" x2="2.54" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="73.66" x2="2.54" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="RESET" gate="1" pin="S"/>
-<wire x1="2.54" y1="76.2" x2="0" y2="76.2" width="0.1524" layer="91"/>
-<junction x="2.54" y="73.66"/>
 <wire x1="0" y1="63.5" x2="0" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="0" y1="66.04" x2="-5.08" y2="66.04" width="0.1524" layer="91"/>
 <label x="-5.08" y="66.04" size="1.778" layer="95"/>
@@ -6586,17 +6582,13 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="FLASH" gate="1" pin="P"/>
-<wire x1="53.34" y1="55.88" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="55.88" x2="50.8" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="FLASH" gate="1" pin="P1"/>
 <wire x1="50.8" y1="53.34" x2="53.34" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="MDL1" gate="G$1" pin="GPIO0"/>
 <wire x1="38.1" y1="53.34" x2="50.8" y2="53.34" width="0.1524" layer="91"/>
 <junction x="50.8" y="53.34"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="60.96" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
-<junction x="50.8" y="55.88"/>
+<wire x1="50.8" y1="60.96" x2="50.8" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
