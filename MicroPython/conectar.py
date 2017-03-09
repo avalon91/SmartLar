@@ -19,8 +19,8 @@ def conectar():
             time.sleep(1)
         if count == 9:
             count = 0
-            wlan.connect('BonoNet', 'bonooliveira402')
-            print('Conectando na rede BonoNet...')
+            wlan.connect('BonoNet2', 'bonooliveira402')
+            print('Conectando na rede BonoNet2...')
             #wlan.connect('LAR-ECT', 'senhafacil1234')
             #print('Conectando na rede LAR-ECT...')
             for i in range(0, 9):
