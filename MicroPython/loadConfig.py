@@ -1,6 +1,5 @@
 def config():
     import socket, json
-    # addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
 
     val1 = ''
     val2 = ''
@@ -14,36 +13,14 @@ def config():
     data = json.loads(preJson)
     config = data['campos']
 
-    html = open('teste.html').read()
-    # f = open('teste.html')
-    # html = f.read()
-    # f.close()
-
-    # html = """<!DOCTYPE html>
-    # <html>
-    # <head> <title>Teste</title> </head>
-    #     <body> <h1>Funcionou!</h1> <br>
-    #         <form>
-    #             Campo 1:<br>
-    #             <input type="text" name="campo1"><br>
-    #             Campo 2:<br>
-    #             <input type="text" name="campo2"><br>
-    #             <input type="submit" value="Enviar">
-    #         </form>
-    #     </body>
-    # <html>"""
+    html = open('webConfig.html').read()
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # s.bind(addr)
     s.bind(('', 80))
     s.listen(1)
 
-    # print('listening on', addr)
-
     while flag == False:
         conn, addr = s.accept()
-        # conn = s.accept()
-        # print('client connected from %s' % str(addr))
         request = conn.recv(1024)
         # print('content = %s' % str(request))
         request = str(request)
