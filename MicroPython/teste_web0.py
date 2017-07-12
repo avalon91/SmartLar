@@ -5,8 +5,14 @@ addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
 val1 = ''
 val2 = ''
 
+preJson = open('config.txt').read()
+data = json.loads(preJson)
+config = data['campos']
+
+#html = open('teste.html').read()
 #f = open('teste.html')
 #html = f.read()
+#f.close()
 
 html = """<!DOCTYPE html>
 <html>
@@ -64,8 +70,15 @@ while True:
         val2 = str2
     if val1 != '':
         print('val1: ' + val1)
+        config[0] = val1
     if val2 != '':
         print('val2: ' + val2)
+        config[1] = val2
+    data['campos'] = config
+    dataIn = json.dumps(data)
+    f = open('config.txt', 'w')
+    f.write(dataIn)
+    f.close()
     response = html
     conn.send(response)
     conn.close()
