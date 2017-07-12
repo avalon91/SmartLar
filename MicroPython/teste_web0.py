@@ -32,12 +32,12 @@ while True:
     conn, addr = s.accept()
     print('client connected from %s' % str(addr))
     request = conn.recv(1024)
-    print('content = %s' % str(request))
+    # print('content = %s' % str(request))
     request = str(request)
     campo1 = request.find('campo1=')
     campo2 = request.find('campo2=')
-    print(campo1)
-    print(campo2)
+    # print(campo1)
+    # print(campo2)
     if(campo1 > 0 and campo1 < 50):
         str1 = ''
         cont = 0
@@ -56,9 +56,9 @@ while True:
         beg = campo2+7
         for i in request:
             if cont >= beg:
-                if i != '\\':
+                if i != '\\' and i != ' ':
                     str2 = str2 + i
-                if i == '\\':
+                if i == '\\' or i == ' ':
                     break
             cont = cont + 1
         val2 = str2
