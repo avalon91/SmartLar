@@ -2,9 +2,7 @@
 #https://github.com/micropython/micropython-lib/blob/master/umqtt.simple/example_pub.py
 #https://github.com/micropython/micropython-lib/pull/91#issuecomment-239030008
 
-def tempo():
-    tp2 = utime.ticks_ms()
-    return tp2
+tp2 = 0
 
 def conectar():
     import mfrc522, machine, time, network, json, utime
@@ -36,10 +34,12 @@ def conectar():
 
     def sub_cb(topic, msg):
         #print((topic, msg))
+        global tp2
         msg = msg.decode("utf-8")
         print(msg)
         if msg == '1':
             lGre.high()
+            tp2 = utime.ticks_ms()
         if msg == '0':
             lRed.high()
             tp2 = utime.ticks_ms()
@@ -72,15 +72,13 @@ def conectar():
                     uid = uid + "%02x" % raw_uid[i]
                 uid = uid + "0"
                 #c.connect()
-                c.publish(TOPIC, b"%s" % uid)
+                c.publish(TOPIC1, b"%s" % uid)
                 #c.disconnect()
 
     def timeHandler():
-        time = tempo()
-        if((lGre.value() == True) and (utime.ticks_diff(utime.ticks_ms(), tp2) < 5000)):
-            #print(utime.ticks_diff(utime.ticks_ms(), tp2))
-            time = tempo()
-            #lGre.low()
+        if((lGre.value() == True) and (utime.ticks_diff(utime.ticks_ms(), tp2) >= 5000)):
+            print(utime.ticks_diff(utime.ticks_ms(), tp2))
+            lGre.low()
         # elif(flag == True):
         #     time2 = utime.ticks_ms()
         #     flag = None
