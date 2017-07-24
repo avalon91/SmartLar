@@ -11,6 +11,8 @@ def conectar():
 
     lGre = machine.Pin(13, machine.Pin.OUT)
     lRed = machine.Pin(12, machine.Pin.OUT)
+    rele = machine.Pin(16, machine.Pin.OUT)
+    rele.low()
 
     if uname()[0] == 'WiPy':
         rdr = mfrc522.MFRC522("GP14", "GP16", "GP15", "GP22", "GP17")
@@ -36,9 +38,10 @@ def conectar():
         #print((topic, msg))
         global tp2
         msg = msg.decode("utf-8")
-        print(msg)
+        # print(msg)
         if msg == '1':
             lGre.high()
+            rele.high()
             tp2 = utime.ticks_ms()
         if msg == '0':
             lRed.high()
@@ -77,13 +80,14 @@ def conectar():
 
     def timeHandler():
         if((lGre.value() == True) and (utime.ticks_diff(utime.ticks_ms(), tp2) >= 5000)):
-            print(utime.ticks_diff(utime.ticks_ms(), tp2))
+            # print(utime.ticks_diff(utime.ticks_ms(), tp2))
             lGre.low()
+            rele.low()
         # elif(flag == True):
         #     time2 = utime.ticks_ms()
         #     flag = None
         elif((lRed.value() == True) and (utime.ticks_diff(utime.ticks_ms(), tp2) >= 2000)):
-            print(utime.ticks_diff(utime.ticks_ms(), tp2))
+            # print(utime.ticks_diff(utime.ticks_ms(), tp2))
             lRed.low()
         # elif(flag == False):
         #     time2 = utime.ticks_ms()
