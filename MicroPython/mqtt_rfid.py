@@ -35,7 +35,7 @@ def conectar():
     PASSWORD = config[3].encode()
 
     def sub_cb(topic, msg):
-        #print((topic, msg))
+        print((topic, msg))
         global tp2
         msg = msg.decode("utf-8")
         # print(msg)
@@ -78,7 +78,7 @@ def conectar():
                 #c.connect()
                 c.publish(TOPIC1, b"%s" % uid)
                 lGre.high()
-                c.check_msg()
+                # c.check_msg()
                 #c.disconnect()
 
     def timeHandler():
@@ -86,6 +86,7 @@ def conectar():
             # print(utime.ticks_diff(utime.ticks_ms(), tp2))
             lGre.low()
             rele.low()
+            print("foi")
         # elif(flag == True):
         #     time2 = utime.ticks_ms()
         #     flag = None
