@@ -20,6 +20,7 @@ def conectar():
         (stat, tag_type) = rdr.request(rdr.REQIDL)
 
         if stat == rdr.OK:
+            lGre.off()
             (stat, raw_uid) = rdr.anticoll()
             if stat == rdr.OK:
                 for i in range(0, 4):
