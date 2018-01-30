@@ -1,5 +1,5 @@
-import mqtt_rfid, reconnect
+import api_rfid, reconnect
 
 reconnect.connect()
 
-mqtt_rfid.conectar()                    # havendo sucesso na conexao, executar o codigo principal
+api_rfid.conectar()                    # havendo sucesso na conexao, executar o codigo principal

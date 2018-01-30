@@ -3,9 +3,6 @@ def config():
 
     val1 = ''
     val2 = ''
-    val3 = ''
-    val4 = ''
-    val5 = ''
 
     flag = False
 
@@ -25,12 +22,8 @@ def config():
         # print('content = %s' % str(request))
         request = str(request)
         ssid = request.find('ssid=')            # procurando pela string no retorno em string
-        senha = request.find('senha=')          # retorna um inteiro, representando a posicao do
-        ip = request.find('ip=')                #primeiro caractere da string procurada
-        paswd = request.find('paswd=')
-        usuar = request.find('usuar=')
+        senha = request.find('senha=')          # retorna um inteiro, representando a posicao do primeiro caractere da string procurada
         # print(ssid)
-        # print(usuar)
         if(ssid > 0 and ssid < 50):             # se a posicao for entre 0 e 50 (-1 e nao encontrado)
             str1 = ''
             cont = 0
@@ -43,69 +36,24 @@ def config():
                         break
                 cont = cont + 1
             val1 = str1
-        if(senha > 0 and senha < 50):           # busca da senha do wifi
+        if(senha > 20 and senha < 80):           # busca da senha do wifi
             str2 = ''
             cont = 0
             beg = senha+6
             for i in request:
                 if cont >= beg:
-                    if i != '&':
-                        str2 = str2 + i
-                    if i == '&':
-                        break
-                cont = cont + 1
-            val2 = str2
-        if(ip > 0 and ip < 50):                 # busca do ip
-            str3 = ''
-            cont = 0
-            beg = ip+3
-            for i in request:
-                if cont >= beg:
-                    if i != '&':
-                        str3 = str3 + i
-                    if i == '&':
-                        break
-                cont = cont + 1
-            val3 = str3
-        if(paswd > 0 and paswd < 60):           # busca da senha do mqtt
-            str4 = ''
-            cont = 0
-            beg = paswd+6
-            for i in request:
-                if cont >= beg:
-                    if i != '&':
-                        str4 = str4 + i
-                    if i == '&':
-                        break
-                cont = cont + 1
-            val4 = str4
-        if(usuar > 0 and usuar < 80):           # busca do nome de usuario do mqtt
-            str5 = ''                           # NOTA: se a quantidade de caracteres anteriores
-            cont = 0                            #somarem mais de 80 (junto com o restante da
-            beg = usuar+6                       #string de retorno), o campo correspondente a
-            for i in request:                   #variavel, no formulario, pode nao ser modificado
-                if cont >= beg:                 #no txt de configuracoes
                     if i != '\\' and i != ' ':
-                        str5 = str5 + i
+                        str2 = str2 + i
                     if i == '\\' or i == ' ':
                         break
                 cont = cont + 1
-            val5 = str5
+            val2 = str2
         if val1 != '':                          # a impressao dos valores obtidos no formulario
             print('val1: ' + val1)              #junto com o armazenamento no vetor
             config[0] = val1
         if val2 != '':
             print('val2: ' + val2)
             config[1] = val2
-        if val3 != '':
-            print('val3: ' + val3)
-            config[2] = val3
-        if val4 != '':
-            print('val4: ' + val4)
-            config[3] = val4
-        if val5 != '':
-            print('val5: ' + val5)
-            config[4] = val5
             flag = True                         # com a ultima variavel tendo sido modificada, mudar o valor da flag de controle
         data['campos'] = config                 # escrita do vetor na biblioteca
         dataIn = json.dumps(data)               # passando a biblioteca para json

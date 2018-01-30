@@ -16,7 +16,7 @@ def connect():
         utime.sleep(1)                      # espere 1 segundo
         global count
         count = count +1                    # incremente o contador em 1
-        if(count == 10):                    # se passarem 10 segundos sem conexao, iniciar a reconfiguracao
+        if(count == 9):                     # se passarem 10 segundos sem conexao, iniciar a reconfiguracao
             init()
 
 def init():
