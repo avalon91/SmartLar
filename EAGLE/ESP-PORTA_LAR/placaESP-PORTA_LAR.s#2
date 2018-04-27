@@ -7848,7 +7848,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <instance part="LED1" gate="-2" x="78.74" y="60.96" rot="R180"/>
 <instance part="LED2" gate="-1" x="91.44" y="60.96"/>
 <instance part="LED2" gate="-2" x="91.44" y="58.42"/>
-<instance part="ENTRADA" gate="G$1" x="43.18" y="86.36"/>
+<instance part="ENTRADA" gate="G$1" x="48.26" y="86.36"/>
 </instances>
 <busses>
 </busses>
@@ -7919,14 +7919,14 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <junction x="66.04" y="53.34"/>
 </segment>
 <segment>
-<label x="55.88" y="86.36" size="1.778" layer="95"/>
+<label x="60.96" y="86.36" size="1.778" layer="95"/>
 <pinref part="ENTRADA" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="86.36" x2="50.8" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="86.36" x2="55.88" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="ENTRADA" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="86.36" x2="58.42" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="83.82" x2="50.8" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="83.82" x2="50.8" y2="86.36" width="0.1524" layer="91"/>
-<junction x="50.8" y="86.36"/>
+<wire x1="55.88" y1="86.36" x2="63.5" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="83.82" x2="55.88" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="83.82" x2="55.88" y2="86.36" width="0.1524" layer="91"/>
+<junction x="55.88" y="86.36"/>
 </segment>
 <segment>
 <pinref part="FTDI" gate="1" pin="6"/>
@@ -8011,9 +8011,9 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 </net>
 <net name="IN+" class="0">
 <segment>
-<label x="55.88" y="88.9" size="1.778" layer="95"/>
+<label x="60.96" y="88.9" size="1.778" layer="95"/>
 <pinref part="ENTRADA" gate="G$1" pin="3"/>
-<wire x1="48.26" y1="88.9" x2="58.42" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="88.9" x2="63.5" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="35.56" y1="101.6" x2="35.56" y2="93.98" width="0.1524" layer="91"/>

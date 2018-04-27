@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.4.3">
+<eagle version="8.6.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7724,6 +7724,7 @@ W = angled&lt;p&gt;
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="-15.24" y1="43.18" x2="-10.16" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="RELE" gate="-1" pin="S"/>
 </segment>
 <segment>
 <wire x1="81.28" y1="53.34" x2="86.36" y2="53.34" width="0.1524" layer="91"/>
