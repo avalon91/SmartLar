@@ -75,8 +75,8 @@ def config():
             response = html                         # enviando de volta a pagina de configuracao
             conn.send(response)
     finally:
-        conn.close()                            # fechando a conexao
-        time.sleep(1)
         response = sucesso                         # enviando de volta a pagina de configuracao
         conn.send(response)
+        conn.close()                            # fechando a conexao
+        time.sleep(1)
         s.close()                                   # fechando o socket de comunicacao

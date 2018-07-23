@@ -38,6 +38,4 @@ def init():
     data2 = json.loads(preJson2)            # armazenamento na biblioteca
     config2 = data2['campos']               # armazenamento em vetor
     wlan.connect(config2[0], config2[1])    # instrucao de conexao na nova rede wifi
-    global count
-    count = 0                       # reiniciar o contador, dando mais 10 segundos para conectar, antes de reiniciar o processo
     machine.reset()
