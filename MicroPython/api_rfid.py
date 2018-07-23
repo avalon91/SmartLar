@@ -10,7 +10,7 @@ def conectar():
     rele = Pin(16, Pin.OUT)
     rele.off()
 
-    linkEntrada = 'http://lar.ect.ufrn.br:8080/api/v1/verificar-entrada/'
+    linkEntrada = 'http://lar.ect.ufrn.br:3000/api/v1/verificar-entrada/'
 
     rdr = mfrc522.MFRC522(0, 2, 4, 5, 14)
 

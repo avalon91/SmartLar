@@ -1,15 +1,17 @@
-import network, utime, ubinascii, json, loadConfig
-
-wlan = network.WLAN(network.STA_IF)     # criacao do objeto wlan
-wlan.active(True)                       # certificando que o wifi esta ativo
-
-preJson = open('config.txt').read()     # leitura do arquivo de configuracao
-data = json.loads(preJson)              # interpretacao do json e associacao a uma biblioteca
-config = data['campos']                 # armazenamento dos campos em um vetor
-
 count = 0                               # contador para ativar o modo de configuracao
 
 def connect():
+    import network, utime, json
+
+    wlan = network.WLAN(network.STA_IF)     # criacao do objeto wlan
+    ap = network.WLAN(network.AP_IF)        # criacao do objeto ap
+    wlan.active(True)                       # certificando que o wifi esta ativo
+    ap.active(False)                        # certificando que o ap esta inativo
+
+    preJson = open('config.txt').read()     # leitura do arquivo de configuracao
+    data = json.loads(preJson)              # interpretacao do json e associacao a uma biblioteca
+    config = data['campos']                 # armazenamento dos campos em um vetor
+
     wlan.connect(config[0], config[1])      # instrucao de conexao ao wifi armazenado (ssid, senha)
 
     while not wlan.isconnected():           # enquanto nao estiver conectado
@@ -20,10 +22,14 @@ def connect():
             init()
 
 def init():
+    import network, ubinascii, json, loadConfig, utime, machine
+
+    wlan = network.WLAN(network.STA_IF)     # criacao do objeto wlan
+    ap = network.WLAN(network.AP_IF)        # criacao do objeto ap
     wlan.active(False)              # desativacao do wlan infraestrutura
     ssid=str(ubinascii.hexlify(wlan.config('mac')))[8:-1]   # recuperacao o endereco mac, converter para hexadecimal, converter para string e manter apenas os ultimos caracteres
-    ap = network.WLAN(network.AP_IF)# criacao do objeto ap
     ap.active(True)                 # ativacao da rede ap
+    utime.sleep(1)
     ap.config(essid='ESP_Config-'+ssid, authmode=network.AUTH_WPA_WPA2_PSK, password='senhafacil'+ssid)     # reconfiguracao das informacoes da rede: criacao de ssid e senha unicos, por esp
     loadConfig.config()             # abertura do programa para reconfiguracao
     wlan.active(True)               # apos alteracao das configuracoes, reativar a rede wlan
@@ -34,3 +40,4 @@ def init():
     wlan.connect(config2[0], config2[1])    # instrucao de conexao na nova rede wifi
     global count
     count = 0                       # reiniciar o contador, dando mais 10 segundos para conectar, antes de reiniciar o processo
+    machine.reset()
