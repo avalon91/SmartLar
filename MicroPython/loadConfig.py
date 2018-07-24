@@ -1,5 +1,5 @@
 def config():
-    import socket, json, time, ure
+    import socket, json, utime, ure
 
     val1 = ''
     val2 = ''
@@ -27,7 +27,8 @@ def config():
             # print(request)
             # print('type = %s' % type(request))
             # print('content = %s' % str(request))
-            request = str(request)
+            request = str(request)[8:100]
+            # print(request)
             m = ure.search(r'(ssid=.*\&)', request)
             if m is not None:
                 val1 = m.group(0)[5:-1]
@@ -62,21 +63,28 @@ def config():
             #         cont = cont + 1
             #     val2 = str2
             if val1 != '':                          # a impressao dos valores obtidos no formulario
+                val1 = val1.replace('+', ' ')
                 print('val1: ' + val1)              #junto com o armazenamento no vetor
                 config[0] = val1
                 print('val2: ' + val2)
                 config[1] = val2
                 flag = True                         # com a ultima variavel tendo sido modificada, mudar o valor da flag de controle
-            data['campos'] = config                 # escrita do vetor na biblioteca
-            dataIn = json.dumps(data)               # passando a biblioteca para json
-            f = open('config.txt', 'w')             # abrindo o arquivo de configuracoes
-            f.write(dataIn)                         # escrevendo o json
-            f.close()                               # fechando o arquivo
-            response = html                         # enviando de volta a pagina de configuracao
-            conn.send(response)
+                data['campos'] = config                 # escrita do vetor na biblioteca
+                dataIn = json.dumps(data)               # passando a biblioteca para json
+                f = open('config.txt', 'w')             # abrindo o arquivo de configuracoes
+                f.write(dataIn)                         # escrevendo o json
+                f.close()                               # fechando o arquivo
+                response = sucesso                         # enviando de volta a pagina de configuracao
+                conn.send(response)
+                conn.close()
+                utime.sleep(1)
+            else:
+                response = html                         # enviando de volta a pagina de configuracao
+                conn.send(response)
+                conn.close()                            # fechando a conexao
     finally:
-        response = sucesso                         # enviando de volta a pagina de configuracao
-        conn.send(response)
-        conn.close()                            # fechando a conexao
-        time.sleep(1)
+        # response = sucesso                         # enviando de volta a pagina de configuracao
+        # conn.send(response)
+        # conn.close()                            # fechando a conexao
+        # utime.sleep(0.5)
         s.close()                                   # fechando o socket de comunicacao
